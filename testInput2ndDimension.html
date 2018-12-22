@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h3>The Carogame</h3>
+    <p id="table"/>
+    <form>
+        <input type="button" id="btnclick" value="your move" onclick="buttonClick();">
+    </form>
+
+<script>
+    var n = parseInt(prompt("Please enter the n test of array 1st dimension"));
+    var m = parseInt(prompt("Please enter the n test of array 2nd dimension"));
+    var theElement = parseInt(prompt("Please enter the Element of array"));
+
+
+    theArray = [];
+
+    for(i = 0; i < n; i++){
+        theArray[i] = [];
+        for (j = 0; j<m;j++){
+            theArray[i][j] = theElement;
+        }
+    }
+
+    document.getElementById("table").innerHTML =createTable(i,j,theArray);
+
+    function createTable(a,b,c) {
+        var data = "";
+
+        for(a =0; a <n; a++){
+            for(b=0;b<m;b++){
+                data += " " + c[a][b]
+            }
+            data += "<br>"
+        }
+    return data
+    }
+    function buttonClick() {
+        y = parseInt(prompt("Please enter the y value"));
+        x = parseInt(prompt("Please ener the x value"));
+
+        theArray[x-1][y-1] = "x";
+        document.getElementById("table").innerHTML = createTable(i,j,theArray);
+    }
+</script>
+
+</body>
+</html>
